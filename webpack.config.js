@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
+require("dotenv").config();
 
 module.exports = env => {
   return {
@@ -21,9 +22,12 @@ module.exports = env => {
       env.deploy === "development" && new webpack.HotModuleReplacementPlugin(),
       new HtmlWebpackPlugin({
         title: "",
-        chartIDs: ["viz__map", "viz__database", "viz__timeline""],
+        chartIDs: ["viz__map", "viz__database", "viz__timeline"],
         inject: false,
         template: path.resolve(__dirname, "src/index.html")
+      }),
+      new webpack.DefinePlugin({
+        MAPBOX_API_KEY: JSON.stringify(process.env.MAPBOX_API_KEY)
       }),
       env.deploy &&
         new CompressionPlugin({

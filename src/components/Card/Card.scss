@@ -1,0 +1,82 @@
+@import "../../scss/widths";
+@import "../../scss/spacing";
+@import "../../scss/box-shadow";
+@import "../../scss/breakpoints";
+.dv-Card {
+  max-width: $mw7;
+  margin-top: $s4;
+  margin-bottom: $s4;
+  @include standard-shadow;
+  &__top {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    @include breakpoint(large) {
+      flex-direction: row;
+    }
+  }
+  &__image {
+    width: 200px;
+    height: 200px;
+    align-self: center;
+    margin: $s3;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include breakpoint(large) {
+      margin: $s4;
+      align-self: flex-start;
+    }
+  }
+  &__meta {
+    padding: $s3;
+    padding-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    &-group {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      padding: 1rem 0.25rem;
+      @include breakpoint(large) {
+        padding: 0 0.25rem;
+      }
+    }
+    @include breakpoint(large) {
+      padding: $s4;
+    }
+  }
+  &__label {
+    font-size: 12px;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  &__value {
+    font-size: 22px;
+    font-weight: bold;
+    padding-top: $s1;
+  }
+  &__value-small {
+    font-size: 14px;
+  }
+  &__description {
+    background-color: #fff;
+    font-size: 14px;
+    padding: $s3;
+    padding-top: 0;
+    line-height: 1.4;
+    @include breakpoint(large) {
+      padding: $s4;
+      padding-top: 0;
+    }
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

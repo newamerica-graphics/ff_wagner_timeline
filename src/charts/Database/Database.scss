@@ -1,0 +1,72 @@
+@import "../../scss/breakpoints";
+@import "../../scss/widths";
+.dv-Database {
+  height: 100%;
+  overflow: hidden;
+  background-color: #fafafa;
+  position: relative;
+  h3 {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @include breakpoint(large) {
+  }
+}
+
+.dv-Database__info {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 1rem 0 1rem;
+  h3 {
+    font-family: Circular;
+    font-size: 22px;
+  }
+  p {
+    font-family: Circular;
+    font-size: 14px;
+    line-height: 1.5; // max-width: $mw6;
+    // margin-left: auto;
+    // margin-right: auto;
+  }
+}
+
+.dv-Database__container {
+  // display: flex;
+  // flex-direction: column;
+  max-width: 1200px;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 1rem;
+  @include breakpoint(large) {
+    // flex-direction: row;
+  }
+}
+
+.dv-Database__filters {
+  // flex-grow: 1;
+  h3 {
+    padding-bottom: 1rem;
+    margin: 0;
+    font-size: 16px;
+  }
+}
+
+.dv-Database__cards {
+  height: 95vh;
+  padding: 2rem 2rem;
+  overflow: scroll;
+  align-self: center;
+  position: relative;
+  @include breakpoint(large) {
+    padding: 4px 2rem;
+  }
+}
+
+.dv-Database__filter-label {
+  font-style: italic;
+  margin-top: 1rem;
+  font-size: 14px;
+}
