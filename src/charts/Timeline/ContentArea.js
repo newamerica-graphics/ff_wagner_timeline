@@ -49,7 +49,7 @@ const ContentRight = props => {
 };
 
 const ArrowLeft = ({ updatePoint, data }) => (
-  <div
+  <a
     className="dv-Timeline__ArrowLeft"
     onClick={() => data.id !== 0 && updatePoint(data.id - 1)}
     style={{ cursor: data.id === 0 ? "not-allowed" : "pointer" }}
@@ -68,11 +68,12 @@ const ArrowLeft = ({ updatePoint, data }) => (
         />
       </g>
     </svg>
-  </div>
+    <span style={{ position: "absolute", left: "9999px" }}>highlight</span>
+  </a>
 );
 
 const ArrowRight = ({ updatePoint, data, highestPoint }) => (
-  <div
+  <a
     className="dv-Timeline__ArrowRight"
     onClick={() => data.id !== highestPoint && updatePoint(data.id + 1)}
     style={{ cursor: data.id === highestPoint ? "not-allowed" : "pointer" }}
@@ -91,8 +92,42 @@ const ArrowRight = ({ updatePoint, data, highestPoint }) => (
         />
       </g>
     </svg>
-  </div>
+    <span style={{ position: "absolute", left: "9999px" }}>highlight</span>
+  </a>
 );
+
+const Sources = ({ data }) => {
+  const keys = Object.keys(data);
+  const sources = keys.filter(c => c.includes("source"));
+  const names = keys.filter(c => c.includes("name"));
+  return (
+    <div className="dv-Timeline__content-sources">
+      <span>
+        Source{data[names[1]] ? "s" : ""}:{" "}
+        {names.map((name, i) => {
+          if (data[name] && data[names[i + 1]]) {
+            return (
+              <span>
+                <a href={data[sources[i]]} target="_blank" rel="noopener">
+                  {data[name]}
+                </a>
+                {", "}
+              </span>
+            );
+          } else if (data[name]) {
+            return (
+              <a href={data[sources[i]]} target="_blank" rel="noopener">
+                {data[name]}
+              </a>
+            );
+          } else {
+            return null;
+          }
+        })}
+      </span>
+    </div>
+  );
+};
 
 export default class ContentArea extends React.Component {
   constructor(props) {
@@ -125,6 +160,7 @@ export default class ContentArea extends React.Component {
             data={activeData}
             hasImage={activeData.image ? true : false}
           />
+          <Sources data={activeData} />
         </div>
         <ArrowLeft updatePoint={updatePoint} data={activeData} />
         <ArrowRight
