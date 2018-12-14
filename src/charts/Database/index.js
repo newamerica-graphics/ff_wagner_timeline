@@ -49,22 +49,12 @@ export default class Database extends React.Component {
       <div className="dv-full dv-Database">
         <div className="dv-Database__info row">
           <h3 className="col-12">21st Century Proxy Wars</h3>
-          <p className="col-12 col-md-8">
-            This map identifies and describes the actors involved in today’s
-            major examples of proxy warfare, understood as a strategy that
-            relies on third-party armed forces that lie outside the
-            constitutional order of rival states engaged overtly or covertly in
-            armed conflict. The map does not purport to be comprehensive, and
-            the dating of when involvement began addresses the root of current
-            proxy warfare strategies. In some cases, there may be instances of
-            limited involvement in proxy warfare or involvement defined by
-            distinct aims prior to the date listed. An attempt has been made to
-            provide such historical context in the description of the
-            engagement.
-          </p>
         </div>
         <div className="dv-Database__container row">
-          <div className="dv-Database__filters col-12 col-sm-4">
+          <div
+            className="dv-Database__filters col-12 col-sm-4"
+            ref={el => (this.filterEl = el)}
+          >
             <h3>Filter By</h3>
             <CheckboxGroup
               title="Principals"
