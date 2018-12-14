@@ -9,19 +9,21 @@
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    letter-spacing: 0;
   }
-  @include breakpoint(large) {
-  }
+  @include breakpoint(large) {}
 }
 
 .dv-Database__info {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding: 2rem 1rem 0 1rem;
+  padding: 2rem 0.5rem 0 0.5rem;
   h3 {
     font-family: Circular;
-    font-size: 22px;
+    font-size: 18px;
+    letter-spacing: 0;
+    padding: 0;
   }
   p {
     font-family: Circular;
@@ -39,14 +41,14 @@
   height: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 2rem 1rem;
+  padding: 2rem 0.5rem;
   @include breakpoint(large) {
     // flex-direction: row;
   }
 }
 
 .dv-Database__filters {
-  // flex-grow: 1;
+  padding: 0 2rem 0 0;
   h3 {
     padding-bottom: 1rem;
     margin: 0;
@@ -55,13 +57,13 @@
 }
 
 .dv-Database__cards {
-  height: 95vh;
-  padding: 2rem 2rem;
-  overflow: scroll;
+  max-height: 45rem;
+  padding: 2rem 0;
+  overflow-y: scroll;
   align-self: center;
   position: relative;
   @include breakpoint(large) {
-    padding: 4px 2rem;
+    padding: 0 0 0 2rem;
   }
 }
 
