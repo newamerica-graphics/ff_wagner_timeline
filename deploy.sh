@@ -22,6 +22,6 @@ do
       aws s3 cp $file s3://datadotnewamerica/$1/index.html
   fi
 done
-aws s3 sync ./src/images s3://datadotnewamerica/$1/images
+aws s3 sync ./src/images s3://datadotnewamerica/$1/images --exclude ./src/images/old
 
 aws cloudfront create-invalidation --distribution-id E15K2IVEDI1Y6H --paths /$1/dist/bundle.js.gz /$1/bundle.js /$1/index.html
