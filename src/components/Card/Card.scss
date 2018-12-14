@@ -3,10 +3,9 @@
 @import "../../scss/box-shadow";
 @import "../../scss/breakpoints";
 .dv-Card {
-  max-width: $mw7;
+  max-width: $mw8;
   margin-top: $s4;
   margin-bottom: $s4;
-  @include standard-shadow;
   &__top {
     display: flex;
     flex-direction: column;
@@ -65,12 +64,21 @@
   &__description {
     background-color: #fff;
     font-size: 14px;
+    padding: 0 $s3;
+    line-height: 1.4;
+    @include breakpoint(large) {
+      padding: 0 $s4;
+    }
+  }
+  &__sources {
+    background-color: #fff;
+    font-size: 12px;
+    font-family: Circular;
+    color: darken(#a6a6a6, 30%);
     padding: $s3;
-    padding-top: 0;
     line-height: 1.4;
     @include breakpoint(large) {
       padding: $s4;
-      padding-top: 0;
     }
   }
   &:first-child {

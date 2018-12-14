@@ -1,6 +1,39 @@
 import React from "react";
 import "./Card.scss";
 
+const Sources = ({ data }) => {
+  const keys = Object.keys(data);
+  const sources = keys.filter(c => c.includes("source"));
+  const names = keys.filter(c => c.includes("name"));
+  return (
+    <div className="dv-Card__sources">
+      <span>
+        Source{data[names[1]] ? "s" : ""}:{" "}
+        {names.map((name, i) => {
+          if (data[name] && data[names[i + 1]]) {
+            return (
+              <span>
+                <a href={data[sources[i]]} target="_blank" rel="noopener">
+                  {data[name]}
+                </a>
+                {", "}
+              </span>
+            );
+          } else if (data[name]) {
+            return (
+              <a href={data[sources[i]]} target="_blank" rel="noopener">
+                {data[name]}
+              </a>
+            );
+          } else {
+            return null;
+          }
+        })}
+      </span>
+    </div>
+  );
+};
+
 export default props => {
   return (
     <div className="dv-Card">
@@ -37,6 +70,7 @@ export default props => {
         </div>
       </div>
       <div className="dv-Card__description">{props.data.description}</div>
+      <Sources data={props.data} />
     </div>
   );
 };
