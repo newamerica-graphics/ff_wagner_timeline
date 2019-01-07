@@ -1,6 +1,6 @@
 import "./index.scss";
 import Database from "./charts/Database";
-import TimelineWithFilter from "./TimelineWithFilter"
+import TimelineWithFilter from "./TimelineWithFilter";
 
 let queue = [];
 let data = null;
@@ -16,10 +16,16 @@ const settings = {
   viz__timeline: el => {
     const timelineData = data.timeline.map((val, i) => ({
       ...val,
-      date: new Date(val.date),
-      dateString: val.date
+      date: new Date(val.date)
     }));
-    ReactDOM.render(<TimelineWithFilter data={timelineData} divisionWidth={30} title="Major Political-Military Events in the History of Proxy Warfare 1947 - Today" />, el);
+    ReactDOM.render(
+      <TimelineWithFilter
+        data={timelineData}
+        divisionWidth={30}
+        title="Major Political-Military Events in the History of Proxy Warfare 1947 - Today"
+      />,
+      el
+    );
   }
 };
 

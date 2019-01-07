@@ -64,9 +64,9 @@ class TimelineControl extends React.Component {
   }
 
   componentWillReceiveProps({ data, activePoint }) {
+    // data array length is probably a bad heuristic to check if the data has changed, but i dont wanna do a deep equal
     if (data.length !== this.props.data.length) {
       this._data = dodge(data, 14, d => d.date, this.scale);
-      console.log(this._data);
     }
     const activeX = this._data[activePoint].x;
     if (activeX === this.lastActiveX) {

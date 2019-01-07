@@ -13,7 +13,7 @@ const ContentLeft = props => {
   } else {
     return (
       <div className={`dv-Timeline__content dv-Timeline__content-left`}>
-        <span className="dv-Timeline__content-label">{data.dateString}</span>
+        <span className="dv-Timeline__content-label">{data.date_string}</span>
         <h1 id="dv-Timeline__content-title">{data.title}</h1>
         <div>
           {data.tags.split(",").map(tag => (
@@ -31,7 +31,7 @@ const ContentRight = props => {
   if (hasImage) {
     return (
       <div className="dv-Timeline__content dv-Timeline__content-right">
-        <span className="dv-Timeline__content-label">{data.dateString}</span>
+        <span className="dv-Timeline__content-label">{data.date_string}</span>
         <h1 className="dv-Timeline__content-title">{data.title}</h1>
         <p className="dv-Timeline__content-description">{data.description}</p>
         {data.tags.split(",").map(tag => (
