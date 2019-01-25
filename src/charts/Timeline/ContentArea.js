@@ -1,15 +1,29 @@
 import React from "react";
 
-const Image = ({ image }) => (
-  <div>
-    <img src={image} />
+const Image = ({ image, caption }) => (
+  <div className="dv-Timeline__image">
+    <div
+      style={{
+        background: `url("${image}") no-repeat center/cover scroll`,
+        width: "100%",
+        height: 250
+      }}
+    />
+    <span className="dv-Timeline__image__caption">Source: {caption}</span>
   </div>
 );
 
 const ContentLeft = props => {
   const { hasImage, data } = props;
   if (hasImage) {
-    return <Image image={data.image} />;
+    return (
+      <Image
+        image={`https://data.newamerica.org/isp_proxy_warfare/images/timeline/${
+          data.title
+        }.jpg`}
+        caption={data["Caption"]}
+      />
+    );
   } else {
     return (
       <div className={`dv-Timeline__content dv-Timeline__content-left`}>
@@ -30,13 +44,15 @@ const ContentRight = props => {
 
   if (hasImage) {
     return (
-      <div className="dv-Timeline__content dv-Timeline__content-right">
+      <div className="dv-Timeline__content dv-Timeline__content-right dv-Timeline__content-withImage">
         <span className="dv-Timeline__content-label">{data.date_string}</span>
-        <h1 className="dv-Timeline__content-title">{data.title}</h1>
+        <h1 id="dv-Timeline__content-title">{data.title}</h1>
         <p className="dv-Timeline__content-description">{data.description}</p>
-        {data.tags.split(",").map(tag => (
-          <span className="dv-Timeline__content-tag">{tag}</span>
-        ))}
+        <div>
+          {data.tags.split(",").map(tag => (
+            <span className="dv-Timeline__content-tag">{tag}</span>
+          ))}
+        </div>
       </div>
     );
   } else {
@@ -68,7 +84,6 @@ const ArrowLeft = ({ updatePoint, data }) => (
         />
       </g>
     </svg>
-    <span style={{ position: "absolute", left: "9999px" }}>highlight</span>
   </a>
 );
 
@@ -92,7 +107,6 @@ const ArrowRight = ({ updatePoint, data, highestPoint }) => (
         />
       </g>
     </svg>
-    <span style={{ position: "absolute", left: "9999px" }}>highlight</span>
   </a>
 );
 
@@ -154,11 +168,11 @@ export default class ContentArea extends React.Component {
         >
           <ContentLeft
             data={activeData}
-            hasImage={activeData.image ? true : false}
+            hasImage={activeData["Caption"] ? true : false}
           />
           <ContentRight
             data={activeData}
-            hasImage={activeData.image ? true : false}
+            hasImage={activeData["Caption"] ? true : false}
           />
           <Sources data={activeData} />
         </div>
