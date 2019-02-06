@@ -22,7 +22,7 @@ const settings = {
       <TimelineWithFilter
         data={timelineData}
         divisionWidth={30}
-        title="Major Political-Military Events in the History of Proxy Warfare 1947 - Today"
+        title="A Timeline of Major Political Military Events That Shaped Proxy Warfare (1947–Today)"
       />,
       el
     );
@@ -50,10 +50,6 @@ window.renderDataViz = function(el) {
 
 const StaticMap = () => (
   <div className="dv-ProxyWar-Map">
-    <div style={{ paddingBottom: "1rem" }}>
-      Active Proxy Wars - this can be embedded anywhere within the text of the
-      report
-    </div>
     <img
       src={`https://api.mapbox.com/styles/v1/newamericamapbox/cjoa6tzcr00cf2rlh7fhgawsl/static/34.99299,32.20005,2.5,0,0/1200x600?access_token=${mapboxKey}`}
       srcSet={`https://api.mapbox.com/styles/v1/newamericamapbox/cjoa6tzcr00cf2rlh7fhgawsl/static/34.99299,32.20005,2.5,0,0/1200x600?access_token=${mapboxKey} 1x, https://api.mapbox.com/styles/v1/newamericamapbox/cjoa6tzcr00cf2rlh7fhgawsl/static/34.99299,32.20005,2.5,0,0/1200x600@2x?access_token=${mapboxKey} 2x`}

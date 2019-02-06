@@ -48,7 +48,7 @@ export default class Database extends React.Component {
     return (
       <div className="dv-full dv-Database">
         <div className="dv-Database__info row">
-          <h3 className="col-12">21st Century Proxy Wars</h3>
+          <h3 className="col-12">Participants in Today’s Major Proxy Wars</h3>
         </div>
         <div className="dv-Database__container row">
           <div
