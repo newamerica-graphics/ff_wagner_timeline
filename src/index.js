@@ -7,12 +7,6 @@ let data = null;
 const mapboxKey = MAPBOX_API_KEY;
 
 const settings = {
-  viz__map: el => {
-    ReactDOM.render(<StaticMap />, el);
-  },
-  viz__database: el => {
-    ReactDOM.render(<Database data={data.map} />, el);
-  },
   viz__timeline: el => {
     const timelineData = data.timeline.map((val, i) => ({
       ...val,
@@ -21,7 +15,7 @@ const settings = {
     ReactDOM.render(
       <TimelineWithFilter
         data={timelineData}
-        divisionWidth={30}
+        divisionWidth={40}
         title="A Timeline of Major Political Military Events That Shaped Proxy Warfare (1947–Today)"
       />,
       el
@@ -29,7 +23,7 @@ const settings = {
   }
 };
 
-fetch("https://na-data-projects.s3.amazonaws.com/data/isp/proxy_warfare.json")
+fetch("https://na-data-sheetsstorm.s3.us-west-2.amazonaws.com/prod/ff/wagner-timeline.json")
   .then(response => response.json())
   .then(_data => {
     data = _data;

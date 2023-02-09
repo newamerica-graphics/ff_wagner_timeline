@@ -18,7 +18,7 @@ const ContentLeft = props => {
   if (hasImage) {
     return (
       <Image
-        image={`https://data.newamerica.org/isp_proxy_warfare/images/timeline/${
+        image={`https://data.newamerica.org/ff_wagner_timeline/images/timeline/${
           data.title
         }.jpg`}
         caption={data["Caption"]}
