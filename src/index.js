@@ -16,7 +16,7 @@ const settings = {
       <TimelineWithFilter
         data={timelineData}
         divisionWidth={40}
-        title="A Timeline of Major Political Military Events That Shaped Proxy Warfare (1947–Today)"
+        title="A Timeline of Events Leading to Russia's 2022 Invasion of Ukraine and the Evolution of the Wagner Group"
       />,
       el
     );
