@@ -19,7 +19,7 @@ const ContentLeft = props => {
     return (
       <Image
         image={`https://data.newamerica.org/ff_wagner_timeline/images/${
-          data['Photo Filename']
+          data.photo_file
         }`}
         caption={data["Caption"]}
       />
